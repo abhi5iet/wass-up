@@ -3,7 +3,7 @@ import { Header } from './Header'
 import { ParticularChat } from './ParticularChat'
 import { SearchBar } from './SearchBar'
 
-export const AllChats = () => {
+export const ChatMenu = () => {
     return (
         <>
             <Header/>

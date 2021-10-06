@@ -5,6 +5,7 @@ import { makeStyles, withStyles } from '@mui/styles';
 import { GoogleLogin } from 'react-google-login';
 import { AcccountContext } from '../../store/AcccountContext';
 
+export const cID = '365017859851-afupl93eftbkkeht6esg7r597p7g43im.apps.googleusercontent.com';
 export const stylle = {
     dialogg: {
         height: '95%',
@@ -49,7 +50,6 @@ const useStyles = makeStyles({
 })
 
 const Login = ({ classes }) => {
-    const cID = '365017859851-afupl93eftbkkeht6esg7r597p7g43im.apps.googleusercontent.com';
     const sttyle = useStyles();
     const { setAcc } = useContext(AcccountContext);
     const onLogSucc = (res) => {
