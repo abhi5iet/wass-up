@@ -5,13 +5,8 @@ import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
 import Login from './account/Login';
 import { AcccountContext } from '../store/AcccountContext';
-import { ChatNow } from './ChatNow';
+import ChatNow from './ChatNow';
 
-const StyledAppBar = styled(AppBar)(({ theme }) => ({
-    height: 200,
-    backgroundColor: '#00bfa5',
-    boxShadow: 'none',
-}));
 const StyledBox = styled(Box)(({ theme }) => ({
     height: '100vh',
     backgroundColor: '#DCDCDC',
@@ -19,6 +14,13 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 export const Messanger = () => {
     const { acc } = useContext(AcccountContext);
+
+    const StyledAppBar = styled(AppBar)(({ theme }) => ({
+        height: acc ? 115 : 200,
+        backgroundColor: '#00bfa5',
+        boxShadow: 'none',
+    }));
+    
     return (
         <StyledBox>
             <StyledAppBar position="static">
