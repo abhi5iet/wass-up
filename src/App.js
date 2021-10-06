@@ -1,11 +1,14 @@
 import './App.css';
 import { Messanger } from './components/Messanger';
+import { AcccountContextProvider } from './store/AcccountContext';
 
 function App() {
   return (
-    <div className="App">
-      <Messanger/>
-    </div>
+    <AcccountContextProvider>
+      <div className="App">
+        <Messanger />
+      </div>
+    </AcccountContextProvider>
   );
 }
 

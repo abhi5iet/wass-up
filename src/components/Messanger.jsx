@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
 import Login from './account/Login';
+import { AcccountContext } from '../store/AcccountContext';
+import { ChatNow } from './ChatNow';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
     height: 200,
@@ -16,13 +18,14 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 export const Messanger = () => {
+    const { acc } = useContext(AcccountContext);
     return (
         <StyledBox>
             <StyledAppBar position="static">
                 <Toolbar>
                 </Toolbar>
             </StyledAppBar>
-            <Login />
+            {acc ? <ChatNow/> : <Login />}
         </StyledBox>
     )
 }

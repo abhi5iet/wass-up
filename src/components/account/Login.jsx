@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Dialog, List, ListItem, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { makeStyles, withStyles } from '@mui/styles';
+import { GoogleLogin } from 'react-google-login';
+import dotenv from 'dotenv';
+import { AcccountContext } from '../../store/AcccountContext';
+dotenv.config();
 
 const style = {
     dialogg: {
@@ -12,6 +16,7 @@ const style = {
         borderRadius: 0,
         maxHeight: '100%',
         maxWidth: '100%',
+        overflow: 'hidden',
     }
 }
 
@@ -46,7 +51,18 @@ const useStyles = makeStyles({
 })
 
 const Login = ({ classes }) => {
+    const cID = process.env.GOOGLE_CLIENT_ID;
+    console.log(cID, 'cid');
+    console.log(process.env, 'pEnv')
     const sttyle = useStyles();
+    const { acc, setAcc } = useContext(AcccountContext);
+    const onLogSucc = (res) => {
+        setAcc(res.profileObj);
+    }
+    const onLogFail = () => {
+
+    }
+
     return (
         <Dialog open={true} classes={{ paper: classes.dialogg }} BackdropProps={{ style: { backgroundColor: 'unset' } }}>
             <Box className={sttyle.comp}>
@@ -58,8 +74,18 @@ const Login = ({ classes }) => {
                         <ListItem>3. Point your phone to this screen and capture the code</ListItem>
                     </List>
                 </Box>
-                <Box>
+                <Box style={{position: 'relative'}}>
                     <img src="https://www.ginifab.com/feeds/qr_code/img/qrcode.jpg" alt="qrCode" className={sttyle.qrCode} />
+                    <Box onClick={() => console.log('Hello')} style={{position: 'absolute', left: '50%', top: '50%'}}>
+                        <GoogleLogin
+                            clientId={`${cID}`}
+                            buttonText=''
+                            isSignedIn={true}
+                            onSuccess={onLogSucc}
+                            onFailure={onLogFail}
+                            cookiePolicy={'single_host_origin'}
+                        />
+                    </Box>
                 </Box>
             </Box>
         </Dialog>
