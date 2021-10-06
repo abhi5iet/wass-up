@@ -3,9 +3,7 @@ import { Dialog, List, ListItem, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { makeStyles, withStyles } from '@mui/styles';
 import { GoogleLogin } from 'react-google-login';
-import dotenv from 'dotenv';
 import { AcccountContext } from '../../store/AcccountContext';
-dotenv.config();
 
 const style = {
     dialogg: {
@@ -51,11 +49,11 @@ const useStyles = makeStyles({
 })
 
 const Login = ({ classes }) => {
-    const cID = process.env.GOOGLE_CLIENT_ID;
+    const cID = process.env.G_CLIENT_ID;
     console.log(cID, 'cid');
     console.log(process.env, 'pEnv')
     const sttyle = useStyles();
-    const { acc, setAcc } = useContext(AcccountContext);
+    const { setAcc } = useContext(AcccountContext);
     const onLogSucc = (res) => {
         setAcc(res.profileObj);
     }
