@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+.MuiDrawer-paperAnchorLeft {
+  height: 95% !important;
+  top: 18px !important;
+  width: 24.5% !important;
+  left: 62px !important;
+  box-shadow: none !important;
+}
+.MuiBackdrop-root {
+  background-color: unset !important;
+}

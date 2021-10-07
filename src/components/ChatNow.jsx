@@ -5,16 +5,14 @@ import { stylle } from './account/Login';
 import { Box } from '@mui/system';
 import { ChatMenu } from './leftChats/ChatMenu';
 
-const chatStyle = {...stylle, dialogg : {...stylle.dialogg, width : '91%', marginTop : 'auto'}}
+const chatStyle = {...stylle, dialogg : {...stylle.dialogg, width : '91%', marginTop : '30px'}}
 
 const useStyles = makeStyles({
     comp: {
         display: 'flex',
     },
     lftComp: {
-        // padding: '56px 0px 56px 56px',
         minWidth: 380,
-
     },
     rytComp: {
         borderLeft : `1px solid rgba(0, 0, 0, 0.14)`

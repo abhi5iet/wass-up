@@ -4,31 +4,33 @@ import { AcccountContext } from '../../store/AcccountContext'
 import ChatIcon from '@mui/icons-material/Chat';
 import { makeStyles } from '@mui/styles';
 import { SideMenu } from './SideMenu';
+import { ProfDrawer } from '../sideDrawer/ProfDrawer';
+import {DrawerContext} from '../../store/DrawerContext';
 
 const useStyles = makeStyles({
-    hddr : {
+    hddr: {
         backgroundColor: '#ededed',
         height: 35,
         padding: '10px 16px',
         display: 'flex',
         alignItems: 'center',
     },
-    dpp : {
+    dpp: {
         height: 37,
         width: 37,
         borderRadius: '50%'
     },
     icons: {
         marginLeft: 'auto',
-        '& > *' : {
+        '& > *': {
             color: '#919191',
             padding: 8,
             marginLeft: 2,
         },
-        '& :first-child' : {
+        '& :first-child': {
             marginRight: 8,
             fontSize: 22,
-            marginTop : 3,
+            marginTop: 3,
         }
     }
 })
@@ -36,13 +38,22 @@ const useStyles = makeStyles({
 export const Header = () => {
     const myStyle = useStyles();
     const { acc } = useContext(AcccountContext);
+    const {open , setOpen} = useContext(DrawerContext);
+
+    const handleDrawer = () => {
+        setOpen(!open);
+    }
+
     return (
-        <Box className={myStyle.hddr}>
-            <img src={acc.imageUrl} alt="DP" className={myStyle.dpp} />
-            <Box className={myStyle.icons}>
-                <ChatIcon/>
-                <SideMenu/>
+        <>
+            <Box className={myStyle.hddr}>
+                <img src={acc.imageUrl} onClick={handleDrawer} alt="DP" className={myStyle.dpp} />
+                <Box className={myStyle.icons}>
+                    <ChatIcon />
+                    <SideMenu />
+                </Box>
             </Box>
-        </Box>
+            <ProfDrawer open={open} setOpen={setOpen} />
+        </>
     )
 }

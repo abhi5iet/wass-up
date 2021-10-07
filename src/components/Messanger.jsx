@@ -17,7 +17,7 @@ export const Messanger = () => {
 
     const StyledAppBar = styled(AppBar)(({ theme }) => ({
         height: acc ? 115 : 200,
-        backgroundColor: '#00bfa5',
+        backgroundColor: '#128C7E',
         boxShadow: 'none',
     }));
     

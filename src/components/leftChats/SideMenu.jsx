@@ -5,6 +5,8 @@ import { GoogleLogout } from 'react-google-login';
 import { cID } from '../account/Login';
 import { AcccountContext } from '../../store/AcccountContext';
 import { makeStyles } from '@mui/styles';
+import { ProfDrawer } from '../sideDrawer/ProfDrawer';
+import { DrawerContext } from '../../store/DrawerContext';
 
 const useStyles = makeStyles({
     items : {
@@ -24,6 +26,7 @@ const useStyles = makeStyles({
 export const SideMenu = () => {
     const myStyle = useStyles();
     const [anchorEl, setAnchorEl] = useState(false);
+    const {open, setOpen} = useContext(DrawerContext);
     const {setAcc} = useContext(AcccountContext);
     const onLogoutSucc = () => {
         alert('Logout Success');
@@ -49,7 +52,7 @@ export const SideMenu = () => {
                     horizontal: 'right'
                 }}
             >
-                <MenuItem className={myStyle.items} onClick={() => setAnchorEl(false)}>Profile</MenuItem>
+                <MenuItem className={myStyle.items} onClick={() => { setAnchorEl(false); setOpen(!open);}}>Profile</MenuItem>
                 <MenuItem className={myStyle.items} onClick={() => setAnchorEl(false)}>My account</MenuItem>
                 <MenuItem className={myStyle.items} onClick={() => setAnchorEl(false)}>
                     <GoogleLogout
@@ -59,6 +62,7 @@ export const SideMenu = () => {
                     className={myStyle.logout}
                     />
                 </MenuItem>
+                <ProfDrawer open={open} setOpen={setOpen} />
             </Menu>
         </>
     )
