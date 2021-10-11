@@ -10,9 +10,7 @@ export const addUser = async (req, res) => {
         return res.status(500).json({message : 'Problem fetching user'});
     }
     try{
-        console.log('here 13');
         const newUser = await User.create(req.body);
-        console.log('here 15');
         return res.status(201).json({data: newUser});
     } catch(err){
         return res.status(500).json({message : 'Errror While Adding User'});
