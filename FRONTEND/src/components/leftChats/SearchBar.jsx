@@ -34,7 +34,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export const SearchBar = () => {
+export const SearchBar = ({setText}) => {
     return (
         <Box style={{backgroundColor: '#F6F6F6', height: '45px', display:'flex', alignItems: 'center'}}>
             <Search>
@@ -44,6 +44,7 @@ export const SearchBar = () => {
                 <StyledInputBase
                     placeholder="Search or start a new chat"
                     inputProps={{ 'aria-label': 'search' }}
+                    onChange={(e) => setText(e.target.value)}
                 />
             </Search>
         </Box>
