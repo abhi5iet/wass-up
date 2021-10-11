@@ -4,6 +4,7 @@ import { Box } from '@mui/system';
 import { makeStyles, withStyles } from '@mui/styles';
 import { GoogleLogin } from 'react-google-login';
 import { AcccountContext } from '../../store/AcccountContext';
+import { addUser } from '../../Servers/appi';
 
 export const cID = '365017859851-afupl93eftbkkeht6esg7r597p7g43im.apps.googleusercontent.com';
 export const stylle = {
@@ -54,6 +55,8 @@ const Login = ({ classes }) => {
     const { setAcc } = useContext(AcccountContext);
     const onLogSucc = (res) => {
         setAcc(res.profileObj);
+        console.log(res.profileObj, 'pfl');
+        addUser(res.profileObj);
     }
     const onLogFail = () => {
 
