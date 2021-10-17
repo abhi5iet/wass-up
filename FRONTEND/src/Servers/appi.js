@@ -18,3 +18,10 @@ export const getUsers = async () => {
         console.log('Error While Getting a user', err);
     }
 }
+export const setConversation = async (data) => {
+    try {
+        await axios.post(`${URL}/conversation/add`, data);
+    }catch(err){
+        console.log('Error While calling setCoversation API', err);
+    }
+}

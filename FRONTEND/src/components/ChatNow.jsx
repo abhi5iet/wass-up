@@ -4,6 +4,7 @@ import { makeStyles, withStyles } from '@mui/styles';
 import { stylle } from './account/Login';
 import { Box } from '@mui/system';
 import { ChatMenu } from './leftChats/ChatMenu';
+import { Chat } from './chat/Chat';
 
 const chatStyle = {...stylle, dialogg : {...stylle.dialogg, width : '91%', marginTop : '30px'}}
 
@@ -15,7 +16,10 @@ const useStyles = makeStyles({
         minWidth: 380,
     },
     rytComp: {
-        borderLeft : `1px solid rgba(0, 0, 0, 0.14)`
+        borderLeft : `1px solid rgba(0, 0, 0, 0.14)`,
+        width: '70%',
+        minWidth: '300',
+        height: '100%'
     }
 });
 
@@ -25,7 +29,7 @@ const ChatNow = ({classes}) => {
         <Dialog open={true} classes={{ paper: classes.dialogg }} BackdropProps={{ style: { backgroundColor: 'unset' } }}>
             <Box className={myCls.comp}>
                 <Box className={myCls.lftComp}><ChatMenu/></Box>
-                <Box className={myCls.rytComp}>HELLO</Box>
+                <Box className={myCls.rytComp}><Chat/></Box>
             </Box>
         </Dialog>
     )
