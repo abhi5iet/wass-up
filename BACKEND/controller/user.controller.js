@@ -24,6 +24,10 @@ export const delUser = async(req, res) => {
 }
 
 export const getUsers = async(req, res) => {
-    const allUsers = await User.find({}).lean().exec();
-    return res.status(200).json({data : allUsers});
+    try{
+        const allUsers = await User.find({}).lean().exec();
+        return res.status(200).json({data : allUsers});
+    } catch(err) {
+        res.status(500).json(err);
+    }
 }
