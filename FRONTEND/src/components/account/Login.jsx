@@ -55,7 +55,6 @@ const Login = ({ classes }) => {
     const { setAcc } = useContext(AcccountContext);
     const onLogSucc = (res) => {
         setAcc(res.profileObj);
-        console.log(res.profileObj, 'pfl');
         addUser(res.profileObj);
     }
     const onLogFail = () => {
