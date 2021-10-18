@@ -7,6 +7,8 @@ const userSchema = mongoose.Schema({
     name : {type: String, required: true},
     givenName : {type: String, required: true},
     familyName : {type: String, required: true},
+}, {
+    versionKey: false,
 })
 
 export default mongoose.model('user', userSchema);

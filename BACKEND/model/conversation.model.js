@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const conversationSchema = mongoose.Schema({
-    memebers: { type: Array },
+    members: { type: Array },
     },
-    {timeStamps: true}
+    {timestamps: true, versionKey: false}
 )
 
 export default mongoose.model('conversation', conversationSchema);

@@ -17,3 +17,12 @@ export const newConvo = async(req, res) => {
         res.status(500).json(err);
     }
 }
+
+export const getConvo = async (req, res) => {
+    try{
+        const conversation = await conversationModel.findOne({members: {$all: [req.body.sender, req.body.reciever]}});
+        res.status(200).json(conversation);
+    }catch(err){
+        res.status(500).json({err: err});
+    }
+}
