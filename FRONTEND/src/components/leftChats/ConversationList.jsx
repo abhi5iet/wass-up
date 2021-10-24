@@ -12,22 +12,29 @@ const useStyles = makeStyles({
     }
 })
 
-export const ConversationList = ({text}) => {
+export const ConversationList = ({ text }) => {
     const myStyles = useStyles();
     const [users, setUsers] = useState([]);
-    const { acc } = useContext(AcccountContext);
+    const { acc, socket, setActiveUser } = useContext(AcccountContext);
     useEffect(() => {
         async function fetchIt() {
             const data = await getUsers();
-            const filteredData = data.data.data.filter(el => el.name.toLowerCase().includes(text.toLowerCase()));
+            const filteredData = data.data.filter(el => el.name.toLowerCase().includes(text.toLowerCase()));
             setUsers(filteredData);
         }
         fetchIt();
     }, [text]);
 
+    useEffect(() => {
+        socket.current.emit('addUser', acc.googleId);
+        socket.current.on('getUsers', users => {
+            setActiveUser(users);
+        })
+    }, [acc])
+
     return (
         <Box className={myStyles.mainBox}>
-            {users.map(item => item.googleId !== acc.googleId && <ConversationItem key={item.googleId} user={item}/>)}
+            {users.map(item => item.googleId !== acc.googleId && <ConversationItem key={item.googleId} user={item} />)}
         </Box>
     )
 }

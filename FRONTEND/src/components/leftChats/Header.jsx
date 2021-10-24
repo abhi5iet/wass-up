@@ -1,11 +1,11 @@
-import { Box } from '@mui/system'
-import React, { useContext } from 'react'
-import { AcccountContext } from '../../store/AcccountContext'
+import { Box } from '@mui/system';
+import { useContext } from 'react';
+import { AcccountContext } from '../../store/AcccountContext';
 import ChatIcon from '@mui/icons-material/Chat';
 import { makeStyles } from '@mui/styles';
 import { SideMenu } from './SideMenu';
 import { ProfDrawer } from '../sideDrawer/ProfDrawer';
-import {DrawerContext} from '../../store/DrawerContext';
+import { DrawerContext } from '../../store/DrawerContext';
 
 const useStyles = makeStyles({
     hddr: {
@@ -38,7 +38,7 @@ const useStyles = makeStyles({
 export const Header = () => {
     const myStyle = useStyles();
     const { acc } = useContext(AcccountContext);
-    const {open , setOpen} = useContext(DrawerContext);
+    const { open, setOpen } = useContext(DrawerContext);
 
     const handleDrawer = () => {
         setOpen(!open);

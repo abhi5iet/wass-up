@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Menu, MenuItem } from '@mui/material';
 import { GoogleLogout } from 'react-google-login';
@@ -9,16 +9,16 @@ import { ProfDrawer } from '../sideDrawer/ProfDrawer';
 import { DrawerContext } from '../../store/DrawerContext';
 
 const useStyles = makeStyles({
-    items : {
+    items: {
         fontSize: 14,
-        padding : '15px 60px 5px 24px',
+        padding: '15px 60px 5px 24px',
         color: '#4A4A4A',
     },
-    logout : {
+    logout: {
         border: 'none !important',
         boxShadow: 'none !important',
         '& > *': {
-            padding : '0px !important',
+            padding: '0px !important',
         }
     }
 })
@@ -26,8 +26,8 @@ const useStyles = makeStyles({
 export const SideMenu = () => {
     const myStyle = useStyles();
     const [anchorEl, setAnchorEl] = useState(false);
-    const {open, setOpen} = useContext(DrawerContext);
-    const {setAcc} = useContext(AcccountContext);
+    const { open, setOpen } = useContext(DrawerContext);
+    const { setAcc } = useContext(AcccountContext);
     const onLogoutSucc = () => {
         alert('Logout Success');
         console.clear();
@@ -52,14 +52,14 @@ export const SideMenu = () => {
                     horizontal: 'right'
                 }}
             >
-                <MenuItem className={myStyle.items} onClick={() => { setAnchorEl(false); setOpen(!open);}}>Profile</MenuItem>
+                <MenuItem className={myStyle.items} onClick={() => { setAnchorEl(false); setOpen(!open); }}>Profile</MenuItem>
                 <MenuItem className={myStyle.items} onClick={() => setAnchorEl(false)}>My account</MenuItem>
                 <MenuItem className={myStyle.items} onClick={() => setAnchorEl(false)}>
                     <GoogleLogout
-                    clientId={`${cID}`}
-                    buttonText='LogOut'
-                    onLogoutSuccess={onLogoutSucc}
-                    className={myStyle.logout}
+                        clientId={`${cID}`}
+                        buttonText='LogOut'
+                        onLogoutSuccess={onLogoutSucc}
+                        className={myStyle.logout}
                     />
                 </MenuItem>
                 <ProfDrawer open={open} setOpen={setOpen} />

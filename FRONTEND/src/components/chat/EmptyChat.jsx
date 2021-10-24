@@ -1,14 +1,13 @@
 import { makeStyles } from '@mui/styles';
-import { Box } from '@mui/system'
-import React from 'react'
+import { Box } from '@mui/system';
 
 const useStyles = makeStyles({
-    component : {
+    component: {
         backgroundColor: '#F8F9FA',
         height: '100%',
         padding: '50px 0px',
         textAlign: 'center',
-        
+
     },
     image: {
         width: '420px'

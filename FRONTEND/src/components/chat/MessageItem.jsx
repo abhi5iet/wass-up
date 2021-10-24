@@ -1,11 +1,11 @@
-import { Typography } from '@mui/material'
+import { Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { Box } from '@mui/system'
-import React, { useContext } from 'react';
+import { Box } from '@mui/system';
+import { useContext } from 'react';
 import { AcccountContext } from '../../store/AcccountContext';
 
 const useStyles = makeStyles({
-    wrapper : {
+    wrapper: {
         backgroundColor: "#FFFFFF",
         padding: 5,
         maxWidth: '60%',
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     },
     text: {
         fontSize: 14,
-        padding : '0 25px 0 5px',
+        padding: '0 25px 0 5px',
     },
     time: {
         fontSize: 10,
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
         color: '#919191',
         wordBreak: 'keep-all'
     },
-    own : {
+    own: {
         backgroundColor: '#DCF8C6',
         padding: 5,
         maxWidth: '60%',
@@ -37,17 +37,16 @@ const useStyles = makeStyles({
     }
 })
 
-export const MessageItem = ({message}) => {
+export const MessageItem = ({ message }) => {
     const myStyles = useStyles();
-    const {acc} = useContext(AcccountContext);
+    const { acc } = useContext(AcccountContext);
     const formatDate = (date) => {
         return date < 10 ? '0' + date : date;
     }
-    console.log(message, 'mess');
     return (
         <Box className={acc.googleId === message.sender ? myStyles.own : myStyles.wrapper}>
             <Typography className={myStyles.text}>{message.text}</Typography>
-            <Typography className={myStyles.time}>{formatDate(new Date(message.createdAt).getHours())}:{formatDate(new Date(message.createdAt).getMinutes()) }</Typography>
+            <Typography className={myStyles.time}>{formatDate(new Date(message.createdAt).getHours())}:{formatDate(new Date(message.createdAt).getMinutes())}</Typography>
         </Box>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Dialog, List, ListItem, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { makeStyles, withStyles } from '@mui/styles';
@@ -53,12 +53,12 @@ const useStyles = makeStyles({
 const Login = ({ classes }) => {
     const sttyle = useStyles();
     const { setAcc } = useContext(AcccountContext);
-    const onLogSucc = (res) => {
+    const onLogSucc = async (res) => {
         setAcc(res.profileObj);
-        addUser(res.profileObj);
+        await addUser(res.profileObj);
     }
-    const onLogFail = () => {
-
+    const onLogFail = (res) => {
+        console.log('Login Failed', res);
     }
 
     return (
@@ -72,9 +72,9 @@ const Login = ({ classes }) => {
                         <ListItem>3. Point your phone to this screen and capture the code</ListItem>
                     </List>
                 </Box>
-                <Box style={{position: 'relative'}}>
+                <Box style={{ position: 'relative' }}>
                     <img src="https://www.ginifab.com/feeds/qr_code/img/qrcode.jpg" alt="qrCode" className={sttyle.qrCode} />
-                    <Box onClick={() => console.log('Hello')} style={{position: 'absolute', left: '50%', top: '50%'}}>
+                    <Box style={{ position: 'absolute', left: '50%', top: '50%' }}>
                         <GoogleLogin
                             clientId={`${cID}`}
                             buttonText=''

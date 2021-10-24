@@ -1,6 +1,6 @@
-import { AttachFile, EmojiEmotionsOutlined, Mic } from '@mui/icons-material'
-import { InputBase } from '@mui/material'
-import { makeStyles } from '@mui/styles'
+import { AttachFile, EmojiEmotionsOutlined, Mic } from '@mui/icons-material';
+import { InputBase } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { Box } from '@mui/system';
 import { styled } from '@mui/material/styles';
 
@@ -38,7 +38,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export const ChatFooter = ({sendText, setMess, mess}) => {
+export const ChatFooter = ({ sendText, setMess, mess }) => {
     const myStyles = useStyles();
     return (
         <Box className={myStyles.footer}>
@@ -49,10 +49,10 @@ export const ChatFooter = ({sendText, setMess, mess}) => {
                     placeholder="Type a message"
                     onKeyPress={(e) => sendText(e)}
                     value={mess}
-                    onChange={(e) => setMess(e.target.value )}
+                    onChange={(e) => setMess(e.target.value)}
                     inputProps={{ 'aria-label': 'search' }} />
             </Box>
-            <Mic/>
+            <Mic />
         </Box>
     )
 }

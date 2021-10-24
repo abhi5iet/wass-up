@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { styled } from '@mui/material/styles';
@@ -20,14 +20,14 @@ export const Messanger = () => {
         backgroundColor: '#128C7E',
         boxShadow: 'none',
     }));
-    
+
     return (
         <StyledBox>
             <StyledAppBar position="static">
                 <Toolbar>
                 </Toolbar>
             </StyledAppBar>
-            {acc ? <ChatNow/> : <Login />}
+            {acc ? <ChatNow /> : <Login />}
         </StyledBox>
     )
 }

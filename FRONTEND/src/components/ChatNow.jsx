@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Dialog } from '@mui/material';
 import { makeStyles, withStyles } from '@mui/styles';
 import { stylle } from './account/Login';
@@ -33,7 +33,7 @@ const ChatNow = ({ classes }) => {
             <Box className={myCls.comp}>
                 <Box className={myCls.lftComp}><ChatMenu /></Box>
                 <Box className={myCls.rytComp}>
-                    { Object.keys(person).length ? <Chat /> : <EmptyChat/>}
+                    {Object.keys(person).length ? <Chat /> : <EmptyChat />}
                 </Box>
             </Box>
         </Dialog>

@@ -8,20 +8,20 @@ import { Messages } from './Messages'
 
 export const Chat = () => {
     const { person } = useContext(UserContext);
-    const {acc} = useContext(AcccountContext);
+    const { acc } = useContext(AcccountContext);
 
     const [conversation, setConversation] = useState({});
     useEffect(() => {
         const getConvoDetail = async () => {
-            let data = await getConvo({sender: acc.googleId, reciever: person.googleId});
+            let data = await getConvo({ sender: acc.googleId, reciever: person.googleId });
             setConversation(data);
-        } 
+        }
         getConvoDetail()
     }, [person.googleId]);
     return (
         <Box>
-            <ChatHeader/>
-            <Messages conversation={conversation} />
+            <ChatHeader person={person} />
+            <Messages conversation={conversation} person={person} />
         </Box>
     )
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
@@ -34,9 +33,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export const SearchBar = ({setText}) => {
+export const SearchBar = ({ setText }) => {
     return (
-        <Box style={{backgroundColor: '#F6F6F6', height: '45px', display:'flex', alignItems: 'center'}}>
+        <Box style={{ backgroundColor: '#F6F6F6', height: '45px', display: 'flex', alignItems: 'center' }}>
             <Search>
                 <SearchIconWrapper>
                     <SearchIcon fontSize='small' />

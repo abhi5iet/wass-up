@@ -3,8 +3,8 @@ import Search from '@mui/icons-material/Search';
 import { Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Box } from '@mui/system';
-import React, { useContext } from 'react'
-import { UserContext } from '../../store/UserContext'
+import { useContext } from 'react';
+import { AcccountContext } from '../../store/AcccountContext';
 
 const useStyles = makeStyles({
     hddr: {
@@ -31,26 +31,26 @@ const useStyles = makeStyles({
     rightContainer: {
         marginLeft: 'auto',
         '& > *': {
-            padding : 8,
+            padding: 8,
             fontSize: 22,
             color: '#919191'
         }
     }
 })
 
-export const ChatHeader = () => {
+export const ChatHeader = ({ person }) => {
     const myStyles = useStyles();
-    const {person} = useContext(UserContext);
+    const { activeUser } = useContext(AcccountContext);
     return (
         <Box className={myStyles.hddr}>
             <img className={myStyles.dpp} src={person.imageUrl} alt="dpp" />
             <Box>
                 <Typography className={myStyles.name}>{person.name}</Typography>
-                <Typography className={myStyles.status}>Online</Typography>
+                <Typography className={myStyles.status}>{activeUser?.find(user => user.userId === person.googleId) ? "Online" : "Offline"}</Typography>
             </Box>
             <Box className={myStyles.rightContainer}>
-                <Search/>
-                <MoreVert/>
+                <Search />
+                <MoreVert />
             </Box>
         </Box>
     )
