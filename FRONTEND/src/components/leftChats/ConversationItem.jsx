@@ -23,9 +23,9 @@ const useStyles = makeStyles({
         fontSize: 12,
         marginLeft: 'auto',
         marginRight: 20,
-        color: "#00000099"
+        color: "#00000099",
     },
-    text: {
+    txt: {
         color: 'rgba(0, 0, 0, 0.6)',
         fontSize: 14
     }
