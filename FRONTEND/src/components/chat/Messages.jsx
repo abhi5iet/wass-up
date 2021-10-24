@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         overflow: 'scroll'
     },
     messItem: {
-        padding: '1px 80px'
+        padding: '1px 70px'
     }
 })
 
@@ -82,7 +82,7 @@ export const Messages = ({ conversation, person }) => {
         <Box className={myStyles.wrapper}>
             <Box className={myStyles.container} >
                 {allMess && allMess.map(item => (
-                    <Box key={Date.now() + item.text + (Math.random() * 1E9)} className={myStyles.messItem} ref={scrollRef}><MessageItem message={item} /></Box>
+                    <Box key={Date.now() + (Math.random() * 1E9)} className={myStyles.messItem} ref={scrollRef}><MessageItem message={item} /></Box>
                 ))}
             </Box>
             <ChatFooter mess={mess} setMess={setMess} sendText={sendText} />
