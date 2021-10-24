@@ -17,7 +17,7 @@ export const Chat = () => {
             setConversation(data);
         }
         getConvoDetail()
-    }, [person.googleId]);
+    }, [acc.googleId, person.googleId]);
     return (
         <Box>
             <ChatHeader person={person} />
