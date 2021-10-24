@@ -1,6 +1,6 @@
 import express from 'express';
 import { addUser, delUser, getUsers } from '../controller/user.controller.js';
-import {getConvo, newConvo} from '../controller/conversation.controller.js'
+import { getConvo, newConvo } from '../controller/conversation.controller.js'
 import { getMessage, newMessage } from '../controller/message.controller.js';
 const router = express.Router();
 
