@@ -9,7 +9,7 @@ export const AcccountContextProvider = ({ children }) => {
     const [msgFlag, setMsgFlag] = useState(false);
     const socket = useRef();
     useEffect(() => {
-        socket.current = io('ws://localhost:9000');
+        socket.current = io(process.env.REACT_APP_SOCKET_URL);
     }, [])
     return (
         <AcccountContext.Provider value={{ acc, setAcc, socket, activeUser, setActiveUser, msgFlag, setMsgFlag }} >

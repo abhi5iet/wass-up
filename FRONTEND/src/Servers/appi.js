@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = 'http://localhost:5000';
+const URL = process.env.REACT_APP_BACKEND_URL;
 
 export const addUser = async (data) => {
     try {

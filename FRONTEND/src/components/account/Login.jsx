@@ -6,7 +6,7 @@ import { GoogleLogin } from 'react-google-login';
 import { AcccountContext } from '../../store/AcccountContext';
 import { addUser } from '../../Servers/appi';
 
-export const cID = '365017859851-afupl93eftbkkeht6esg7r597p7g43im.apps.googleusercontent.com';
+export const cID = process.env.REACT_APP_G_CLIENT_ID;
 export const stylle = {
     dialogg: {
         height: '95%',
